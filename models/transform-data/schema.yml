@@ -1,0 +1,58 @@
+
+version: 2
+
+models:
+    - name: events_user_level
+      description: "Flattens the events table to user level "
+      columns:
+            - name: user_id
+            description: "The unique identifier of the user that RSVPed for this event"
+            tests:
+                - unique
+                - not_null
+          - name: name
+            description: "The title of the event"
+            tests:
+                - not_null
+          - name: status
+            description: "The status of the event"
+            tests:
+                - not_null
+          - name: venue_id
+            description: "Unique identifier of the venue where this event takes place"
+            tests:
+                - not_null
+          - name: time
+            description: "The timestamp of when the event will start (or has started)"
+            tests:
+                - not_null
+          - name: created
+            description: "Timestamp of the moment the event was created by the organiser"
+            tests:
+                - not_null
+           - name: duration_hours
+            description: "The duration of the event, in hours"
+            tests:
+                - not_null
+           - name: rsvp_limit
+            description: "The maximum number of YES RSVPs that this event will allow"
+            tests:
+                - not_null
+          - name: response
+            description: "User's RSVP, yes, no or waitlist"
+            tests:
+                - not_null
+          - name: user_when
+            description: "Timestamp of the moment the user gave their RSVP"
+            tests:
+                - not_null
+          - name: days_to_rsvp
+            description: "How many days the user took to RVSP after the event's creation date"
+            tests:
+                - not_null
+          - name: guests
+            description: "If permitted, the number of guests that the user is planning to bring to the event"
+            tests:
+                - not_null
+
+  
