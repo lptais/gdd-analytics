@@ -3,7 +3,7 @@
     This model normalizes the events table.
     Through UNNEST(rsvps) it captures user-level information.
 */
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 SELECT
     rsvps.user_id,
