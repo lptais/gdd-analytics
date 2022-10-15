@@ -20,5 +20,5 @@ SELECT
     DATE_DIFF(DATE(TIMESTAMP_MILLIS(rsvps.when)),DATE(TIMESTAMP_MILLIS(created)), DAY) AS days_to_rsvp,
     rsvps.guests
   FROM
-    `gdd-analytics-engineer.meetup.events`,
+    `gdd-analytics-engineer.landing_zone.events`,
     UNNEST(rsvps) AS rsvps
