@@ -3,9 +3,9 @@ version: 2
 
 models:
     - name: events_user_level
-      description: "Flattens the events table to user level "
+      description: "Flattens the events table to user level"
       columns:
-            - name: user_id
+          - name: user_id
             description: "The unique identifier of the user that RSVPed for this event"
             tests:
                 - unique
@@ -30,11 +30,11 @@ models:
             description: "Timestamp of the moment the event was created by the organiser"
             tests:
                 - not_null
-           - name: duration_hours
+          - name: duration_hours
             description: "The duration of the event, in hours"
             tests:
                 - not_null
-           - name: rsvp_limit
+          - name: rsvp_limit
             description: "The maximum number of YES RSVPs that this event will allow"
             tests:
                 - not_null
