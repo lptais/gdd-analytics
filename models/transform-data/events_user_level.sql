@@ -1,6 +1,6 @@
 
 /*
-    This model normalizes the events table.
+    This model flattens the events table.
     Through UNNEST(rsvps) it captures user-level information.
 */
 {{ config(materialized='table') }}

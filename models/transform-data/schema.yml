@@ -54,5 +54,49 @@ models:
             description: "If permitted, the number of guests that the user is planning to bring to the event"
             tests:
                 - not_null
-
-  
+                
+    - name: users
+      description: "Flattens the users table"
+      columns:
+          - name: user_id
+            description: "A unique identifier for this user"
+            tests:
+                - unique
+                - not_null
+          - name: country
+            description: "Country where the user resides"
+            tests:
+                - not_null
+          - name: city
+            description: "City where the user resides"
+            tests:
+                - not_null
+          - name: group_id
+            description: "The unique identifier of the group that the user has joined"
+            tests:
+                - not_null
+          - name: joined_date
+            description: "Date of when the user joined the group"
+            tests:
+                - not_null
+ 
+    - name: venues
+      description: "Selects relevant columns from venues table"
+      columns:
+          - name: venue_id
+            description: "A unique identifier for the venue"
+            tests:
+                - unique
+                - not_null
+          - name: name
+            description: "Name of the venue"
+            tests:
+                - not_null
+          - name: country
+            description: "Country of the venue"
+            tests:
+                - not_null
+          - name: city
+            description: "City of the venue"
+            tests:
+                - not_null
