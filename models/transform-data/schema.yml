@@ -100,3 +100,67 @@ models:
             description: "City of the venue"
             tests:
                 - not_null
+
+    - name: joined_events_user_venue_info
+      description: "joins the events, user and venues information"
+      columns:
+          - name: user_id
+            description: "A unique identifier for this user"
+            tests:
+                - not_null
+          - name: user_city
+            description: "City where the user resides"
+            tests:
+                - not_null
+          - name: user_country
+            description: "Country where the user resides"
+            tests:
+                - not_null
+          - name: event_name
+            description: "The title of the event"
+            tests:
+                - not_null
+          - name: user_response
+            description: "User's RSVP, yes, no or waitlist"
+            tests:
+                - not_null
+          - name: event_status
+            description: "The status of the event"
+            tests:
+                - not_null
+          - name: event_created_date
+            description: "Timestamp of the moment the event was created by the organiser"
+            tests:
+                - not_null
+          - name: group_id
+            description: "The unique identifier of the group that organized the event"
+            tests:
+                - not_null
+          - name: rsvp_limit
+            description: "The maximum number of YES RSVPs that this event will allow"
+            tests:
+                - not_null
+          - name: days_to_rsvp
+            description: "How many days the user took to RVSP after the event's creation date"
+            tests:
+                - not_null
+          - name: venue_id
+            description: "A unique identifier for the venue"
+            tests:
+                - not_null
+          - name: venue_name
+            description: "Venue's name"
+            tests:
+                - not_null
+          - name: venue_city
+            description: "Venue's city"
+            tests:
+                - not_null
+          - name: venue_country
+            description: "Venue's country"
+            tests:
+                - not_null
+          - name: same_country
+            description: "Boolean that checks if user's country is the same as venue's country"
+            tests:
+                - not_null
