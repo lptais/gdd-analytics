@@ -14,7 +14,7 @@ SELECT
     TIMESTAMP_MILLIS(CAST(time AS INT64)) AS time,
     DATE(TIMESTAMP_MILLIS(created)) AS created,
     IFNULL(ROUND(duration/3600,1),0) AS duration_hours,
-    rsvp_limit,
+    IFNULL(rsvp_limit, 0) as rsvp_limit,
     rsvps.response,
     DATE(TIMESTAMP_MILLIS(rsvps.when)) AS user_when,
     DATE_DIFF(DATE(TIMESTAMP_MILLIS(rsvps.when)),DATE(TIMESTAMP_MILLIS(created)), DAY) AS days_to_rsvp,
