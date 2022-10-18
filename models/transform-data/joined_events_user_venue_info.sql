@@ -12,7 +12,7 @@ SELECT
   a.name as event_name, 
   a.response as user_response,
   a.status as event_status,
-  a.created as event_created_date,
+  a.created_date as event_created_date,
   a.group_id, 
   a.rsvp_limit,
   a.days_to_rsvp, 
@@ -20,11 +20,13 @@ SELECT
   c.name as venue_name,
   c.city as venue_city,
   UPPER(c.country) as venue_country,
-  IF(UPPER(b.country)=UPPER(c.country), "True", "False") as same_country
+  IF(UPPER(b.country)=UPPER(c.country), "True", "False") as same_country, 
+  b.user_groups, 
+  b.count_groups
 
-from {{ ref('events_user_level') }} as a 
+from {{ ref('events') }} as a 
 LEFT JOIN
-  (SELECT user_id, city, country, STRING_AGG(group_id) from {{ ref('users') }} group by 1,2,3) as b
+  {{ ref('users') }} as b
 USING
   (user_id)
 LEFT JOIN
