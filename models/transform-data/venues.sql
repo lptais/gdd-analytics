@@ -7,7 +7,7 @@
 SELECT
   venue_id,
   name,
-  country,
+  UPPER(country) as country,
   city
 FROM
-  `gdd-analytics-engineer.landing_zone.venues`
+  `gdd-analytics-engineer.landing_zone_airbyte.venues`

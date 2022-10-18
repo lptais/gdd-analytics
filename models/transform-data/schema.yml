@@ -2,13 +2,17 @@
 version: 2
 
 models:
-    - name: events_user_level
+    - name: events
       description: "Flattens the events table to user level"
       columns:
           - name: user_id
             description: "The unique identifier of the user that RSVPed for this event"
             tests:
                 - unique
+                - not_null
+          - name: response
+            description: "User's RSVP, yes, no or waitlist"
+            tests:
                 - not_null
           - name: name
             description: "The title of the event"
@@ -22,12 +26,16 @@ models:
             description: "Unique identifier of the venue where this event takes place"
             tests:
                 - not_null
+          - name: group_id
+            description: "The unique identifier of the group that organized the event"
+            tests:
+                - not_null
           - name: time
             description: "The timestamp of when the event will start (or has started)"
             tests:
                 - not_null
-          - name: created
-            description: "Timestamp of the moment the event was created by the organiser"
+          - name: created_date
+            description: "Date of the moment the event was created by the organiser"
             tests:
                 - not_null
           - name: duration_hours
@@ -38,12 +46,8 @@ models:
             description: "The maximum number of YES RSVPs that this event will allow"
             tests:
                 - not_null
-          - name: response
-            description: "User's RSVP, yes, no or waitlist"
-            tests:
-                - not_null
-          - name: user_when
-            description: "Timestamp of the moment the user gave their RSVP"
+          - name: user_when_date
+            description: "Date of the moment the user gave their RSVP"
             tests:
                 - not_null
           - name: days_to_rsvp
@@ -71,12 +75,12 @@ models:
             description: "City where the user resides"
             tests:
                 - not_null
-          - name: group_id
-            description: "The unique identifier of the group that the user has joined"
+          - name: user_groups
+            description: "Groups that the user has joined"
             tests:
                 - not_null
-          - name: joined_date
-            description: "Date of when the user joined the group"
+          - name: count_groups
+            description: "Count of groups that the user has joined"
             tests:
                 - not_null
  
