@@ -104,6 +104,26 @@ models:
             description: "City of the venue"
             tests:
                 - not_null
+    - name: groups
+      description: "Selects relevant columns from the groups table"
+      columns:
+          - name: group_id
+            description: "Unique identifier for this group. This is used as a reference in other objects"
+            tests:
+                - unique
+                - not_null
+          - name: name
+            description: "Name of the group"
+            tests:
+                - not_null
+          - name: city
+            description: "City of the group"
+            tests:
+                - not_null
+          - name: topics
+            description: "Array of topics that this group discusses or otherwise associates with"
+            tests:
+                - not_null
 
     - name: joined_events_user_venue_info
       description: "joins the events, user and venues information"
