@@ -1,3 +1,8 @@
+/*
+    This model returns the groups table.
+*/
+{{ config(materialized='table') }}
+
 SELECT
   group_id,
   name,
