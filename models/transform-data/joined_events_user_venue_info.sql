@@ -11,6 +11,7 @@ SELECT
   a.response as user_response,
   a.status as event_status,
   a.created_date as event_created_date,
+  a.user_when_date,
   a.venue_id,
   c.name as venue_name,
   c.country as venue_country,
